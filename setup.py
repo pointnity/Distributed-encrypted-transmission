@@ -1,4 +1,3 @@
-
 #!/usr/bin/env python
 
 from setuptools import setup, find_packages
@@ -24,3 +23,14 @@ setup(
         'blockstack>=0.14.1',
         'blockstack-gpg>=0.14.1'
     ],
+  classifiers=[
+        'Intended Audience :: Developers',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
+        'Operating System :: OS Independent',
+        'Programming Language :: Python',
+        'Topic :: Internet',
+        'Topic :: Security :: Cryptography',
+        'Topic :: Software Development :: Libraries :: Python Modules',
+    ],
+)
+© 2018 GitHub, Inc.
