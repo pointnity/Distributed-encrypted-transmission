@@ -28,3 +28,32 @@ import traceback
 
 from ConfigParser import SafeConfigParser
 from .version import __version__
+
+import blockstack_client
+import blockstack_gpg
+
+APP_NAME = "files"
+MAX_EXPIRED_KEYS = 20
+
+log = blockstack_client.get_logger()
+
+if os.environ.get("BLOCKSTACK_TEST", "") == "1":
+    # testing!
+    CONFIG_PATH = os.environ.get("BLOCKSTACK_FILE_CONFIG", None)
+    assert CONFIG_PATH is not None, "BLOCKSTACK_FILE_CONFIG must be defined"
+
+    CONFIG_DIR = os.path.dirname( CONFIG_PATH )
+
+else:
+    CONFIG_DIR = os.path.expanduser("~/.blockstack-files")
+    CONFIG_PATH = os.path.join( CONFIG_DIR, "blockstack-files.ini" )
+
+CONFIG_FIELDS = [
+    'immutable_key',
+    'key_id',
+    'blockchain_id',
+    'hostname',
+    'wallet'
+]
+
+def get_config( config_path=CONFIG_PATH ):
