@@ -55,5 +55,3 @@ CONFIG_FIELDS = [
     'hostname',
     'wallet'
 ]
-
-def get_config( config_path=CONFIG_PATH ):
